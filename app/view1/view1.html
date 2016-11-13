@@ -1,0 +1,72 @@
+<div class='container'>
+
+	<h1 class="title-h1">P2P Solution for E-commerce</h1>
+
+	<h2 class="title-h2">Use SimDa to save money on international transfers.</h2>
+	<h3 class="title-h4">Calculate how much you would save on fees and exchange rates using our exchange calculator.</h3>
+
+	<div class="well center">
+
+		<div class="row">
+			<div class="col-md-2">
+				<p>Customer pays</p>
+			</div>
+			<div class="col-md-5">
+				<form class="form-inline">
+					<div class="input-group">
+						<input 	type="text" 
+								ng-model="from_value" 
+								class="form-control" 
+								ng-change="get_exchange_rates(from_currency, to_currency)">
+					</div>
+					<select class="form-control" id="sel1" 
+							ng-model="from_currency"
+							ng-change="get_exchange_rates(from_currency, to_currency)">
+						<option	ng-if="currency.Active == true" ng-repeat="currency in currencies" 
+								value="{{currency.Symbol}}" >{{ currency.Symbol }} - {{ currency.Name }}</option>
+					</select>
+				</form>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2">
+				<p>You receive</p>
+			</div>
+			<div class="col-md-5">
+				<form class="form-inline">
+					<div class="input-group">
+						<input 	type="text" 
+								class="form-control" 
+								ng-model="to_value" 
+								ng-disabled="true">
+					</div>
+					<select class="form-control" id="sel1" 
+							ng-model="to_currency" 
+							ng-change="get_exchange_rates(from_currency, to_currency)">
+						<option	ng-if="currency.Active == true" ng-repeat="currency in currencies" 
+								value="{{currency.Symbol}}" >{{ currency.Symbol }} - {{ currency.Name }}</option>
+					</select>
+				</form>
+			</div>
+			<div class="col-md-5">
+				<div id="loading-bar-container"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 text-align">
+				<p>
+				Fixed fee (included): 3$
+				</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 text-align">
+				<a href="#" class="btn btn-raised btn-info">Run a test transaction</a>
+			</div>
+		</div>
+
+	</div>
+</div>
